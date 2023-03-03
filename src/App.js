@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Asukohad from './Asukohad'
-import DetailVaade from './Detailvaade'
+import Detailvaade from './Detailvaade'
 import LisaAsukoht from './LisaAsukoht'
 
 function App() {
 	const [aktiivne, setAktiivne] = useState(0)
-	const [avatudDetail, setAvatudDetail] = useState('DetailVaade')
+	const [avatudDetail, setAvatudDetail] = useState('Detailvaade')
 	const laeIlmaAndmed = async () => {
 		const koht = ilmaAndmed[aktiivne]
-
+		console.log('laeIlmaAndmed')
 		if (koht.andmed) {
 			return
 		}
@@ -32,6 +32,11 @@ function App() {
 		//lisa asukohtObj ilmaAndmed massiivi funktsiooni setIlmaAndmed abil. Kasuta parameeterfunktsiooni
 		//muuda muutuja aktiivne väärtust nii et see oleks võrdne ilmaAndmete massiivi pikkusega + 1
 		//muuda muutuja avatudDetail väärtust nii et ilma aktiivse ilma andmed oleksid näha
+		setIlmaAndmed((vana) => {
+			return [...ilmaAndmed, asukohtObj]
+		})
+		setAktiivne(ilmaAndmed.length)
+		setAvatudDetail('Detailvaade')
 	}
 
 	const [ilmaAndmed, setIlmaAndmed] = useState([
@@ -57,7 +62,7 @@ function App() {
 
 	const muudaAktiivset = (uusAktiivne) => {
 		setAktiivne(uusAktiivne)
-		setAvatudDetail('DetailVaade')
+		setAvatudDetail('Detailvaade')
 	}
 
 	useEffect(() => {
@@ -74,12 +79,8 @@ function App() {
 					muudaAktiivset={muudaAktiivset}
 					setAvatudDetail={setAvatudDetail}
 				/>
-				{avatudDetail === 'DetailVaade' && (
-					<DetailVaade koht={ilmaAndmed[aktiivne]} />
-				)}
-				{avatudDetail === 'LisaAsukoht' && (
-					<LisaAsukoht lisaUusAsukoht={lisaUusAsukoht} />
-				)}
+				{avatudDetail === 'Detailvaade' && <Detailvaade koht={ilmaAndmed[aktiivne]} />}
+				{avatudDetail === 'LisaAsukoht' && <LisaAsukoht lisaUusAsukoht={lisaUusAsukoht} />}
 			</div>
 		</div>
 	)

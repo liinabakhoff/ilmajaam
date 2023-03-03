@@ -1,9 +1,11 @@
-import { eventWrapper } from '@testing-library/user-event/dist/utils'
 import { useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+
+// Liina: Kas alamkomponendid peaksid olema dumb komponendid - sh LisaAsukoht?
+// Kas state peaks olema App.js-is?
 
 function LisaAsukoht({ lisaUusAsukoht }) {
 	// Loo kolm sisestusvälja (nimi, latitude, longitude)
@@ -13,9 +15,9 @@ function LisaAsukoht({ lisaUusAsukoht }) {
 	// - loob uue objekti, millel on sarnased võtmed ülejäänud asukohtadega
 	// - kutsu välja funktsioon lisaUusAsukoht andes sellele  parameetrina uus loodud objekt
 	const [newLocation, setNewLocation] = useState({
-		lat: 0,
-		long: 0,
 		nimi: '',
+		lat: '',
+		long: '',
 		andmed: null,
 	})
 
@@ -28,7 +30,16 @@ function LisaAsukoht({ lisaUusAsukoht }) {
 		})
 	}
 
-	const handleSubmit = () => {}
+	const handleSubmit = () => {
+		lisaUusAsukoht(newLocation)
+		resetNewLocation()
+	}
+
+	const resetNewLocation = () => {
+		setNewLocation((prevState) => {
+			return { ...prevState, nimi: '', lat: '', long: '' }
+		})
+	}
 
 	return (
 		<div>
@@ -87,7 +98,9 @@ function LisaAsukoht({ lisaUusAsukoht }) {
 						<Button variant='outline-primary' className='mr-2' onClick={handleSubmit}>
 							Lisa
 						</Button>
-						<Button variant='outline-secondary'>Katkesta</Button>
+						<Button variant='outline-secondary' onClick={resetNewLocation}>
+							Katkesta
+						</Button>
 					</Col>
 				</Form.Group>
 			</Form>
