@@ -1,6 +1,6 @@
 import LisaAsukoht from './LisaAsukoht'
 
-function Asukohad({ ilmaAndmed, aktiivne, muudaAktiivset, setAvatudDetail }) {
+function Asukohad({ ilmaAndmed, aktiivne, muudaAktiivset, avatudDetail, setAvatudDetail }) {
 	const klikkReal = (index) => {
 		muudaAktiivset(index)
 	}
@@ -10,7 +10,7 @@ function Asukohad({ ilmaAndmed, aktiivne, muudaAktiivset, setAvatudDetail }) {
 			<div className='asukoht-navigatsioon'>
 				{ilmaAndmed.map((asukoht, index) => {
 					let navItem = 'nav-item'
-					if (index === aktiivne) {
+					if ((index === aktiivne) & (avatudDetail != 'LisaAsukoht')) {
 						navItem += ' active'
 					}
 					return (
@@ -21,7 +21,7 @@ function Asukohad({ ilmaAndmed, aktiivne, muudaAktiivset, setAvatudDetail }) {
 				})}
 			</div>
 			<div
-				className='lisa-asukoht'
+				className={avatudDetail === 'LisaAsukoht' ? 'lisa-asukoht active' : 'lisa-asukoht'}
 				onClick={() => {
 					setAvatudDetail('LisaAsukoht')
 				}}

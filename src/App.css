@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Open+Sans:wght@300;400&display=swap");
 *,
 *:before,
 *:after {
@@ -409,27 +410,50 @@ input {
 
 body {
   background-color: darkkhaki;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-image: url("./images/fabian-jones-FbXWmWWQ8BI-unsplash.jpg");
+  background-size: cover;
 }
 
-.container {
+#page-container {
   display: grid;
   background-color: white;
-  width: 80%;
   min-height: calc(100vh - 60px);
-  margin: 30px auto auto auto;
-  padding: 10px;
-  grid-template-rows: min-content auto;
+  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 86px auto;
+  border-radius: 5px;
+  border-radius: 5px;
+}
+#page-container .navbar {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.07), inset 0 -1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.brand-txt {
+  font-family: "Comfortaa", "Open Sans", sans-serif;
+  color: grey;
+  line-height: 60px;
+  font-size: 1.5rem;
 }
 
 .page {
   display: flex;
+  position: relative;
 }
 .page .asukoht {
   width: 150px;
-  margin-right: 15px;
-  border-right: 1px solid darkgray;
+  border-right: 1px solid lightgray;
   display: grid;
   grid-template-rows: auto 100px;
+  padding: var(--bs-gutter-x);
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+.page .spinner-border {
+  position: absolute;
+  top: 20%;
+  left: 50%;
 }
 
 .nav-item {
@@ -440,6 +464,10 @@ body {
 }
 .nav-item.active {
   font-weight: bold;
+  color: rgb(101, 181, 161);
+}
+.nav-item:hover {
+  font-weight: bold;
 }
 
 .lisa-asukoht {
@@ -448,6 +476,9 @@ body {
 }
 .lisa-asukoht span {
   cursor: pointer;
+}
+.lisa-asukoht.active {
+  font-weight: bold;
 }
 
 .detailvaade-pealkiri {

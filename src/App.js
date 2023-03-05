@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import logo from './images/logo.png'
 import Asukohad from './Asukohad'
 import Detailvaade from './Detailvaade'
 import LisaAsukoht from './LisaAsukoht'
+import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
 
 function App() {
 	const [aktiivne, setAktiivne] = useState(0)
@@ -29,9 +31,6 @@ function App() {
 	}
 
 	const lisaUusAsukoht = (asukohtObj) => {
-		//lisa asukohtObj ilmaAndmed massiivi funktsiooni setIlmaAndmed abil. Kasuta parameeterfunktsiooni
-		//muuda muutuja aktiivne väärtust nii et see oleks võrdne ilmaAndmete massiivi pikkusega + 1
-		//muuda muutuja avatudDetail väärtust nii et ilma aktiivse ilma andmed oleksid näha
 		setIlmaAndmed((vana) => {
 			return [...ilmaAndmed, asukohtObj]
 		})
@@ -70,19 +69,38 @@ function App() {
 	}, [aktiivne])
 
 	return (
-		<div className='container'>
-			<h1>Ilmajaam</h1>
+		<Container id='page-container' className='p-0'>
+			<Navbar bg='light' variant='light'>
+				<Container className='p-3'>
+					<Navbar.Brand href='#home'>
+						<img
+							alt=''
+							src={logo}
+							width='60'
+							height='60'
+							className='d-inline-block align-top'
+						/>
+						<span className='brand-txt ml-3'>Ilmajaam</span>
+					</Navbar.Brand>
+				</Container>
+			</Navbar>
 			<div className='page'>
 				<Asukohad
 					ilmaAndmed={ilmaAndmed}
 					aktiivne={aktiivne}
 					muudaAktiivset={muudaAktiivset}
+					avatudDetail={avatudDetail}
 					setAvatudDetail={setAvatudDetail}
 				/>
 				{avatudDetail === 'Detailvaade' && <Detailvaade koht={ilmaAndmed[aktiivne]} />}
-				{avatudDetail === 'LisaAsukoht' && <LisaAsukoht lisaUusAsukoht={lisaUusAsukoht} />}
+				{avatudDetail === 'LisaAsukoht' && (
+					<LisaAsukoht
+						lisaUusAsukoht={lisaUusAsukoht}
+						setAvatudDetail={setAvatudDetail}
+					/>
+				)}
 			</div>
-		</div>
+		</Container>
 	)
 }
 

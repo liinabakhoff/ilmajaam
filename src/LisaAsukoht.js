@@ -4,16 +4,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-// Liina: Kas alamkomponendid peaksid olema dumb komponendid - sh LisaAsukoht?
+// Küsimus: Kas alamkomponendid peaksid olema dumb komponendid - sh LisaAsukoht?
 // Kas state peaks olema App.js-is?
 
-function LisaAsukoht({ lisaUusAsukoht }) {
-	// Loo kolm sisestusvälja (nimi, latitude, longitude)
-	// Loo kolm reacti muutujat sisestusväljade väärtuste hoidmiseks
-	// Seo reacti muutujad sisestusväljadega
-	// Kui vajutatakse nupule Lisa käivitatakse funktsioon mis teeb järgmist:
-	// - loob uue objekti, millel on sarnased võtmed ülejäänud asukohtadega
-	// - kutsu välja funktsioon lisaUusAsukoht andes sellele  parameetrina uus loodud objekt
+function LisaAsukoht({ lisaUusAsukoht, setAvatudDetail }) {
 	const [newLocation, setNewLocation] = useState({
 		nimi: '',
 		lat: '',
@@ -41,8 +35,13 @@ function LisaAsukoht({ lisaUusAsukoht }) {
 		})
 	}
 
+	const handleCancel = () => {
+		resetNewLocation()
+		setAvatudDetail('Detailvaade')
+	}
+
 	return (
-		<div>
+		<div className='lisa-asukoht-vaade p-4'>
 			<h3>Lisa asukoht</h3>
 			<Form>
 				<Form.Group as={Row} controlId='nimi' className='mb-3'>
@@ -98,7 +97,7 @@ function LisaAsukoht({ lisaUusAsukoht }) {
 						<Button variant='outline-primary' className='mr-2' onClick={handleSubmit}>
 							Lisa
 						</Button>
-						<Button variant='outline-secondary' onClick={resetNewLocation}>
+						<Button variant='outline-secondary' onClick={handleCancel}>
 							Katkesta
 						</Button>
 					</Col>
