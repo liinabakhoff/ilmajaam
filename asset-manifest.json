@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/liinabakhoff/ilmajaam/static/css/main.b57e2817.css",
+    "main.js": "/liinabakhoff/ilmajaam/static/js/main.5f097fa2.js",
+    "static/js/787.61e55dd5.chunk.js": "/liinabakhoff/ilmajaam/static/js/787.61e55dd5.chunk.js",
+    "static/media/fabian-jones-FbXWmWWQ8BI-unsplash.jpg": "/liinabakhoff/ilmajaam/static/media/fabian-jones-FbXWmWWQ8BI-unsplash.0875ec6bf35a90c15888.jpg",
+    "static/media/logo.png": "/liinabakhoff/ilmajaam/static/media/logo.749fb93f5a5cfa2e0041.png",
+    "index.html": "/liinabakhoff/ilmajaam/index.html",
+    "main.b57e2817.css.map": "/liinabakhoff/ilmajaam/static/css/main.b57e2817.css.map",
+    "main.5f097fa2.js.map": "/liinabakhoff/ilmajaam/static/js/main.5f097fa2.js.map",
+    "787.61e55dd5.chunk.js.map": "/liinabakhoff/ilmajaam/static/js/787.61e55dd5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b57e2817.css",
+    "static/js/main.5f097fa2.js"
+  ]
+}
