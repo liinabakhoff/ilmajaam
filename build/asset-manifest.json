@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/liinabakhoff/static/css/main.dc361b3c.css",
+    "main.js": "/liinabakhoff/static/js/main.c5d7c884.js",
+    "static/js/787.61e55dd5.chunk.js": "/liinabakhoff/static/js/787.61e55dd5.chunk.js",
+    "static/media/fabian-jones-FbXWmWWQ8BI-unsplash.jpg": "/liinabakhoff/static/media/fabian-jones-FbXWmWWQ8BI-unsplash.0875ec6bf35a90c15888.jpg",
+    "static/media/logo.png": "/liinabakhoff/static/media/logo.749fb93f5a5cfa2e0041.png",
+    "index.html": "/liinabakhoff/index.html",
+    "main.dc361b3c.css.map": "/liinabakhoff/static/css/main.dc361b3c.css.map",
+    "main.c5d7c884.js.map": "/liinabakhoff/static/js/main.c5d7c884.js.map",
+    "787.61e55dd5.chunk.js.map": "/liinabakhoff/static/js/787.61e55dd5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc361b3c.css",
+    "static/js/main.c5d7c884.js"
+  ]
+}
